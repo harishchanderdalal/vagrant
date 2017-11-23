@@ -126,6 +126,7 @@ config.vm.define "lb" do |lb|
   sudo apt-get update 
   sudo apt-get install -y nginx
 SHELL
+end
 
 config.vm.define "app1" do |app1|
   app1.vm.box = "ubuntu/trusty64"
