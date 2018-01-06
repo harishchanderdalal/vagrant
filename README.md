@@ -122,6 +122,7 @@ Vagrant.configure("2") do |config|
 config.vm.define "lb" do |lb|
   lb.vm.box = "ubuntu/trusty64"
   lb.vm.network "private_network", ip: "84.0.0.10"
+  lb.vm.hostname = "lb.com"
   lb.vm.provision "shell", inline: <<-SHELL 
   sudo apt-get update 
   sudo apt-get install -y nginx
@@ -131,6 +132,7 @@ end
 config.vm.define "app1" do |app1|
   app1.vm.box = "ubuntu/trusty64"
   app1.vm.network "private_network", ip: "84.0.0.20"
+  app1.vm.hostname = "app1.com"
   app1.vm.provision "shell", inline: <<-SHELL 
   sudo apt-get update 
   sudo apt-get install -y apache2
@@ -140,6 +142,7 @@ end
 config.vm.define "app2" do |app2|
   app2.vm.box = "ubuntu/trusty64"
   app2.vm.network "private_network", ip: "84.0.0.30"
+  app2.vm.hostname = "app2.com"
   app2.vm.provision "shell", inline: <<-SHELL 
   sudo apt-get update 
   sudo apt-get install -y apache2
